@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Reservation</display-name>
+    <servlet-name>Reservation</servlet-name>
+    <servlet-class>fr.eseo.application.Reservation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reservation</servlet-name>
+    <url-pattern>/Reservation</url-pattern>
+  </servlet-mapping>
 </web-app>

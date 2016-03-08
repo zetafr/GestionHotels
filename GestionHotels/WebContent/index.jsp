@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h2>Bienvenue sur l'interface de réservation.</h2>
+	<form method="post" name="Reservation" action="Reserver">
+		Name Chambre: <input type="text" name="chambre"> <br>
+		<br>
+		<br> <input type="submit" value="Reserver">
+	</form>	
+	<% if (session.getAttribute("result") != null) out.print(session.getAttribute("result")); %>
+    	
+    <br><br>
+    <form method="post" name="return" action="index.html">
+    			<input type="submit" name="return" value="page principale" />
+    </form>
 </body>
 </html>
