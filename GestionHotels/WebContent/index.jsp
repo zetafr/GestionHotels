@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background:#CDE392">
 	<h2>Bienvenue sur l'interface de réservation.</h2>
 	<form method="post" name="Reservation" action="Reserver">
 		Name Chambre: <input type="text" name="chambre"> <br>
