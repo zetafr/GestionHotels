@@ -4,12 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here test</title>
+<title>Réservation</title>
 </head>
 <body style="background:#CDE392">
 	<h2>Bienvenue sur l'interface de réservation.</h2>
 	<form method="post" name="Reservation" action="Reserver">
-		Name Chambre: <input type="text" name="chambre"> <br>
+		Type de Chambre: 
+		<SELECT name="Type de chambre" size="5">
+		<OPTION>Business
+		<OPTION>Famille
+		<OPTION>Noce
+		<OPTION>Standard
+		</SELECT>
 		<br>
 		<br> <input type="submit" value="Reserver">
 	</form>	
