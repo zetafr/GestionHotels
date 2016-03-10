@@ -35,8 +35,7 @@ public class Reservation extends HttpServlet {
 		session.setAttribute("result", chambre);
 		
 		/*Transmission des données*/
-		RequestDispatcher dispat = request
-				.getRequestDispatcher("VisualCalculatrice.jsp");
+		RequestDispatcher dispat = request.getRequestDispatcher("VisualForm.jsp");
 		dispat.forward(request, response); 
 	}
 

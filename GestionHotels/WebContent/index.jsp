@@ -10,13 +10,13 @@
 	<h2>Sélectionnez le type de séjour que vous souhaitez</h2>
 	<form method="post" name="Reservation" action="Reserver">
 		Type de Chambre: <br><br>
-		Business (2 pers. max) <input type="radio" name="typeChambre" value="1" checked>
+		Business (2 pers. max) <input type="radio" name="typeChambre" value="Business" checked>
 		<br>
-		Famille (6 pers. max) <input type="radio" name="typeChambre" value="2">
+		Famille (6 pers. max) <input type="radio" name="typeChambre" value="Famille">
 		<br>
-		Noce (2 pers. max) <input type="radio" name="typeChambre" value="3">
+		Noce (2 pers. max) <input type="radio" name="typeChambre" value="Noce">
 		<br>
-		Standard (4 pers. max) <input type="radio" name="typeChambre" value="4">
+		Standard (4 pers. max) <input type="radio" name="typeChambre" value="Standard">
 		<br><br>
 		nombre de personnes (1 à 6) : <input type="number" name="nbPersonnes"/>
 		<br><br>
@@ -36,7 +36,6 @@
 		<input type="submit" value="Reserver">
 	</form>	
 	<% if (session.getAttribute("result") != null) out.print(session.getAttribute("result")); %>
-    	
     <br><br>
     <form method="post" name="return" action="index.html">
     			<input type="submit" name="return" value="page principale" />
