@@ -7,38 +7,25 @@
 <title>Réservation</title>
 </head>
 <body style="background:#CDE392">
-	<h2>Sélectionnez le type de séjour que vous souhaitez</h2>
-	<form method="post" name="Reservation" action="Reserver">
-		Type de Chambre: <br><br>
-		Business (2 pers. max) <input type="radio" name="typeChambre" value="Business" checked>
+	<h2>Bienvenue sur notre site de réservation d'hotel !</h2>
+	<br>
+	Connectez-vous : 
+	<form method="post" name="Connexion" action="Connecter">
+		Login : <input type="text" name="login">
 		<br>
-		Famille (6 pers. max) <input type="radio" name="typeChambre" value="Famille">
-		<br>
-		Noce (2 pers. max) <input type="radio" name="typeChambre" value="Noce">
-		<br>
-		Standard (4 pers. max) <input type="radio" name="typeChambre" value="Standard">
+		Password : <input type="password" name="password">
 		<br><br>
-		nombre de personnes (1 à 6) : <input type="number" name="nbPersonnes"/>
-		<br><br>
-		Date du début du séjour : <input type="date" name="dateDebut"/>
-		<br><br> 
-		Date de fin du séjour : <input type="date" name="dateFin"/>
-		<br><br>
-	<h2>Rentrez vos informations personnelles</h2>	
-		Nom : <input type="text" name="nomClient">
-		<br><br>
-		Prénom : <input type="text" name="prenomClient">
-		<br><br>
-		Adresse : <input type="text" name="adrClient">
-		<br><br>
-		Téléphone : <input type="text" name="telClient">
-		<br><br>
-		<input type="submit" value="Reserver">
-	</form>	
+		<input type="submit" value="Se connecter">
+	</form>
+	<br><br>
+	Pas encore inscrit ?
+	<form method="post" name="Inscription" action="Inscrire">
+		<input type="submit" value="S'inscrire">
+	</form>
 	<% if (session.getAttribute("result") != null) out.print(session.getAttribute("result")); %>
     <br><br>
     <form method="post" name="return" action="index.html">
-    			<input type="submit" name="return" value="page principale" />
+    			<input type="submit" name="return" value="Page principale" />
     </form>
 </body>
 </html>
