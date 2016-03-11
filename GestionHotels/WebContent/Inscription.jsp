@@ -23,8 +23,10 @@
 		<label for="adresse">Adresse: </label><input type="text" id="adresse" name="adresse"/> <br>
 		<label for="numtel">Numero de telephone: </label><input type="text" id="numtel" name="tel"/><br>
 		<label for="dateNaissance">Date de naissance: </label><input type="text" id="dateNaissance" name="dateNais"/><br>
+		<input type="hidden" name="required" value="name, nom, prenom, login, password, confpassword, mail, adresse, tel, dateNais">
 		<br><br>
-		<input type="submit" value="S'inscrire">
+		<input type="submit" value="S'inscrire" onclick="required(document.Inscription.nom)"/>
 	</form>
+	<script src="non-empty.js"></script>
 </body>
 </html>
