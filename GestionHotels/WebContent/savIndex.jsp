@@ -7,23 +7,24 @@
 <title>Réservation</title>
 </head>
 <body style="background:#CDE392">
-	<h2>Sélectionnez le type de séjour que vous souhaitez</h2>
+	<h2>La reservation demandée est disponible </h2>
+
+	<%String typeChambre = request.getParameter("typeChambre");
+	  int nbPersonnes = Integer.parseInt(request.getParameter("nbPersonnes"));
+	  String dateDebut = request.getParameter("dateDebut");
+	  String dateFin = request.getParameter("dateFin"); %>
+	
 	<form method="post" name="Reservation" action="Reserver">
-		Type de Chambre: <br><br>
-		Business (2 pers. max) <input type="radio" name="typeChambre" value="Business" checked>
-		<br>
-		Famille (6 pers. max) <input type="radio" name="typeChambre" value="Famille">
-		<br>
-		Noce (2 pers. max) <input type="radio" name="typeChambre" value="Noce">
-		<br>
-		Standard (4 pers. max) <input type="radio" name="typeChambre" value="Standard">
+	    <h2>Vous avez choisi : </h2>
+	    Type de Chambre : <% out.print(typeChambre);%>
 		<br><br>
-		nombre de personnes (1 à 6) : <input type="number" name="nbPersonnes"/>
+		nombre de personnes :  <% out.print(nbPersonnes);%>
 		<br><br>
-		Date du début du séjour : <input type="date" name="dateDebut"/>
+		Date du début du séjour :  <% out.print(dateDebut);%>
 		<br><br> 
-		Date de fin du séjour : <input type="date" name="dateFin"/>
+		Date de fin du séjour :  <% out.print(dateFin);%>
 		<br><br>
+	   
 	<h2>Rentrez vos informations personnelles</h2>	
 		Nom : <input type="text" name="nomClient">
 		<br><br>
@@ -35,9 +36,10 @@
 		<br><br>
 		<input type="submit" value="Reserver">
 	</form>	
+	
 	<% if (session.getAttribute("result") != null) out.print(session.getAttribute("result")); %>
     <br><br>
-    <form method="post" name="return" action="index.html">
+    <form method="post" name="return" action="index.jsp">
     			<input type="submit" name="return" value="page principale" />
     </form>
 </body>
