@@ -1,9 +1,9 @@
-function scanChamp(objChamp)
+function scanChamp(objChamp, reContenuValide)
 {
-	if ("".test(objChamp.value))
+	if (!reContenuValide.test(objChamp.value))
 	{
 		objChamp.value = '';
 		objChamp.focus();
-		alert('La saisie n\'est est vide. ');
+		alert('La saisie n\'est pas valide. ');
 	}
 }
