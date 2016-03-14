@@ -77,11 +77,11 @@ public class Inscription extends HttpServlet{
 				request.getParameter("prenom"),
 				request.getParameter("login"),
 				request.getParameter("password"),
-				request.getParameter("confpassword"),
+				request.getParameter("confPassword"),
 				request.getParameter("mail"),
 				request.getParameter("adresse"),
-				request.getParameter("numtel"),
-				request.getParameter("dateNaissance")};
+				request.getParameter("tel"),
+				request.getParameter("dateNais")};
 		
 		for(int i=0; i<9 ; i++)
 			if(param[i].equals(""))

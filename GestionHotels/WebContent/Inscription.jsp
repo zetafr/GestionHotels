@@ -29,15 +29,15 @@
 		<br><br>
 		<h4><label for="adresse">Adresse: </label></h4><input type="text" id="adresse" name="adresse"/> <br>
 		
-		<h4><label for="numtel">Numero de telephone: </label></h4><input type="text" id="numtel" name="tel"/><br>
+		<h4><label for="numtel">Numero de telephone:  </label></h4><input type="text" id="numtel" name="tel"/><br>
 		
 		<font color="red"> 
 			<% if (session.getAttribute("errorDateFormat").equals("wrong format")==true) {
 					out.print("Format error: must be like dd/mm/yyyy ");
-			}%> </font><br>
+			}%> </font><br> 
 		<h4><label for="dateNaissance">Date de naissance: </label></h4><input type="text" id="dateNaissance" name="dateNais"/><br>
 		<font color="red"> <%if(session.getAttribute("allFieldsAreFilled").equals(false)) out.print("Attention: Tous les champs d'information ne sont pas remplis"); %>
-		</font>
+		</font> 
 		<br><br>
 		<input type="submit" value="S'inscrire">
 	</form>

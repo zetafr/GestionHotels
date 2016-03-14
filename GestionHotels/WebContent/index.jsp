@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Réservation</title>
+<title>Accueil</title>
 </head>
 <body style="background:#CDE392">
-	<h2>Bienvenue sur notre site de réservation d'hotel !</h2>
+	<h1>Bienvenue sur notre site de réservation d'hotel !</h1>
 	<br>
-	Connectez-vous : 
+	<h2>Connectez-vous : </h2>
 	<form method="post" name="Connexion" action="Connecter">
 		Login : <input type="text" name="login">
 		<br>
@@ -18,8 +18,8 @@
 		<input type="submit" value="Se connecter">
 	</form>
 	<br><br>
-	Pas encore inscrit ?
-	<form method="post" name="Inscription" action="Inscrire">
+	<h2>Pas encore inscrit ?</h2>
+	<form method="post" name="Inscription" action="Inscription.jsp">
 		<input type="submit" value="S'inscrire">
 	</form>
     <br><br>
