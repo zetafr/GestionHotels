@@ -1,8 +1,6 @@
 package fr.eseo.application;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,52 +32,61 @@ public class Inscription extends HttpServlet{
 		String password = request.getParameter("password");
 		String confPassword = request.getParameter("confPassword");
 		
-		if(password.equals(confPassword)==false){
-			 session.setAttribute("correctPassword", false);
-			/*Transmission des données*/
-			RequestDispatcher dispat = request.getRequestDispatcher("Inscription.jsp");
-			dispat.forward(request, response); 
-		}
+		session.setAttribute("errorDateFormat", "new");
+		session.setAttribute("errorMailFormat", "new");
+		session.setAttribute("correctPassword", true);
+		session.setAttribute("allFieldsAreFilled", true);
+		
+		if(fieldsAreFilled(request)==false)
+			session.setAttribute("allFieldsAreFilled", false);
 		if(dateFormatIsCorrect(request.getParameter("dateNais"))==false)
 			session.setAttribute("errorDateFormat", "wrong format");
 		if(mailFormatIsCorrect(request.getParameter("mail"))==false)
 			session.setAttribute("errorMailFormat", "wrong format");
-		if(phoneNumberFormatIsCorrect(request.getParameter("tel"))==false)
-			session.setAttribute("errorPhoneNumberFormat", "wrong format");
+		if(password.equals(confPassword)==false)
+			 session.setAttribute("correctPassword", false);
 		
-		/*Transmission des données*/
-		RequestDispatcher dispat = request.getRequestDispatcher("AccueilClient.jsp");
-		dispat.forward(request, response);
-			
-		
-		
+		if(session.getAttribute("errorDateFormat")!=null ||
+				session.getAttribute("errorMailFormat")!=null ||
+				session.getAttribute("correctPassword")!=null){
+			/*Transmission des données*/
+			RequestDispatcher dispat = request.getRequestDispatcher("Inscription.jsp");
+			dispat.forward(request, response); 
+		}else{
+			/*Transmission des données*/
+			RequestDispatcher dispat = request.getRequestDispatcher("AccueilClient.jsp");
+			dispat.forward(request, response);
+		}
 	}
 	
-	public boolean dateFormatIsCorrect(String date){
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		String s = new String(date);
-        Date d = new Date();
-        try {
-            d = sdf.parse(s);
-            String t = sdf.format(d);
-            if(t.compareTo(s) !=  0)
-                return true;
-            else
-                return false;
-        } catch (Exception e) {
-                return false;
-        }
-	}
-	
-	public boolean mailFormatIsCorrect(String email){
-		Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
-		Matcher m = p.matcher(email.toUpperCase());
+	private boolean dateFormatIsCorrect(String date){
+        Pattern p = Pattern.compile("^[0-9]{2}/[0-9]{2}/[0-9]{4}$");
+		Matcher m = p.matcher(date);
 		return m.matches();
 	}
 	
-	public boolean phoneNumberFormatIsCorrect(String email){
-		Pattern p = Pattern.compile("[0-9]");
-		Matcher m = p.matcher(email.toUpperCase());
+	private boolean mailFormatIsCorrect(String email){
+		Pattern p = Pattern.compile("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}.[a-z]{2,4}$");
+		Matcher m = p.matcher(email);
 		return m.matches();
+	}
+	
+	
+	private boolean fieldsAreFilled(HttpServletRequest request){
+		String[] param= {request.getParameter("nom"), 
+				request.getParameter("prenom"),
+				request.getParameter("login"),
+				request.getParameter("password"),
+				request.getParameter("confpassword"),
+				request.getParameter("mail"),
+				request.getParameter("adresse"),
+				request.getParameter("numtel"),
+				request.getParameter("dateNaissance")};
+		
+		for(int i=0; i<9 ; i++)
+			if(param[i].equals(""))
+				return false;
+		
+		return true;
 	}
 }
