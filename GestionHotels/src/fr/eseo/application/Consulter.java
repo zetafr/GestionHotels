@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@WebServlet("/Consulte")
 /**
- * Servlet implementation class Reservation
+ * Servlet implementation class Consulter
  */
-@WebServlet("/Reserver")
-public class Reservation extends HttpServlet {
+public class Consulter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Reservation() {
+    public Consulter() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,15 +30,18 @@ public class Reservation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String chambre = request.getParameter("chambre");
+		int presentBD;
+		presentBD = 1;// simule la requète vers la base de donné ( a savoir si il dispoibilité dans les chambres demandés)
 		
-		//envoyer une requete à la BDD pour dire qu'une chambre est reservée
+		if(presentBD==1){
+			RequestDispatcher dispat = request.getRequestDispatcher("savIndex.jsp");
+			dispat.forward(request, response);
+		}else{
+			RequestDispatcher dispat = request.getRequestDispatcher("Consulter.jsp");
+			dispat.forward(request, response);
+		}
 		
-		session.setAttribute("result", chambre);
-		
-		/*Transmission des données*/
-		RequestDispatcher dispat = request.getRequestDispatcher("VisualForm.jsp");
-		dispat.forward(request, response); 
+		/*Transmission des données*/ 
 	}
 
 }

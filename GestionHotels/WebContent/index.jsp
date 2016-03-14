@@ -22,10 +22,19 @@
 	<form method="post" name="Inscription" action="Inscrire">
 		<input type="submit" value="S'inscrire">
 	</form>
-	<% if (session.getAttribute("result") != null) out.print(session.getAttribute("result")); %>
+    <br><br>
+    
+  	Consulter les chambres disponibles 
+	<form method="post" name="Chambres" action="Consulter.jsp">
+		<input type="submit" value="Consulter Chambres">
+	</form>
+	
     <br><br>
     <form method="post" name="return" action="index.html">
     			<input type="submit" name="return" value="Page principale" />
     </form>
+    
+    <% if (session.getAttribute("result") != null) out.print(session.getAttribute("result")); %>
+    <br><br>
 </body>
 </html>
