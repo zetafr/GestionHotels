@@ -19,4 +19,14 @@
     <servlet-name>Reservation</servlet-name>
     <url-pattern>/Reservation</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Consulter</display-name>
+    <servlet-name>Consulter</servlet-name>
+    <servlet-class>fr.eseo.application.Consulter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Consulter</servlet-name>
+    <url-pattern>/Consulter</url-pattern>
+  </servlet-mapping>
 </web-app>
